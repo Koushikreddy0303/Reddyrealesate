@@ -1,0 +1,39 @@
+.card {
+  min-height: 400px;
+}
+.card h1{
+  font-family: fantasy;
+  color: #000;
+}
+.img-wrapper{
+  overflow: hidden;
+  position: relative;
+}
+.card:hover img{
+  height: 250px;
+  transform: scale(1.2,1.2); /* Slightly enlarge the card */
+  transition-duration: 500ms;
+  transition-timing-function: ease-out;
+  opacity: 0.6;
+}
+.card:hover .button-overlay {
+  opacity: 1;
+}
+.card img{
+  height: 250px;
+  transform: scale(1,1);
+  transition-duration: 500ms;
+  transition-timing-function: ease-out;
+}
+
+.button-overlay {
+  position: absolute;
+  bottom:1%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  gap: 10px;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+

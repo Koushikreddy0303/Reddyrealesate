@@ -1,0 +1,61 @@
+<div class="container mt-4">
+  <div class="card mx-auto p-4 shadow" style="max-width: 400px;">
+    <h3 class="text-center">User Login</h3>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+
+      <!-- Email -->
+      <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input
+          type="email"
+          id="email"
+          class="form-control"
+          formControlName="email"
+
+        />
+        <small class="text-danger" *ngIf=" f['email'].touched && f['email'].errors?.['required']">
+          Email is required.
+        </small>
+        <small class="text-danger" *ngIf="f['email'].touched && f['email'].errors?.['email']">
+          Enter a valid email.
+        </small>
+        <!-- <div class="invalid-feedback" *ngIf="f['email'].touched && f['email'].errors?.['required']">
+          Email is required.
+        </div>
+        <div class="invalid-feedback" *ngIf="f['email'].touched && f['email'].errors?.['email']">
+          Enter a valid email.
+        </div> -->
+      </div>
+
+      <!-- Password -->
+      <div class="mb-3">
+        <label for="password" class="form-label">Password</label>
+        <input
+          type="password"
+          id="password"
+          class="form-control"
+          formControlName="password"
+        />
+        <!-- <div class="invalid-feedback" *ngIf="f['password'].touched && f['password'].errors?.['required']">
+          Password is required.
+        </div>
+        <div class="invalid-feedback" *ngIf="f['password'].touched && f['password'].errors?.['minlength']">
+          Password must be at least 6 characters.
+        </div> -->
+        <small class="text-danger" *ngIf="f['password'].touched && f['password'].errors?.['required']">
+          Password is required.
+        </small>
+        <small class="text-danger" *ngIf="f['password'].touched  && f['password'].errors?.['minlength']">
+          Minimum 6 characters required.
+        </small>
+      </div>
+
+      <!-- Buttons -->
+      <div class="d-flex justify-content-center">
+        <button type="submit" class="btn btn-primary me-2" >Login</button>
+        <button type="button" class="btn btn-secondary" (click)="loginForm.reset()">Reset</button>
+      </div>
+
+    </form>
+  </div>
+</div>

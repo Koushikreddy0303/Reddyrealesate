@@ -1,0 +1,58 @@
+<div class="container mt-4 ">
+  <div class="card mx-auto p-4 shadow" style="max-width: 600px;">
+    <h2 class="text-center">User Registration</h2>
+
+    <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+      <!-- Name -->
+      <div class="mb-3">
+        <label for="name" class="form-label">Name</label>
+        <input type="text" id="name" class="form-control" formControlName="name" />
+        <small class="error-block" *ngIf=" (f['name'].touched || submitted) && f['name'].errors?.['required']">
+          Name is required.
+        </small>
+      </div>
+
+      <!-- Email -->
+      <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input type="email" id="email" class="form-control" formControlName="email" />
+        <small class="text-danger" *ngIf=" (f['email'].touched || submitted) && f['email'].errors?.['required']">
+          Email is required.
+        </small>
+        <small class="text-danger" *ngIf="f['email'].touched && f['email'].errors?.['email']">
+          Enter a valid email.
+        </small>
+      </div>
+
+      <!-- Password -->
+      <div class="mb-3">
+        <label for="password" class="form-label">Password</label>
+        <input type="password" id="password" class="form-control" formControlName="password" />
+        <small class="text-danger" *ngIf="(f['password'].touched  || submitted)&& f['password'].errors?.['required']">
+          Password is required.
+        </small>
+        <small class="text-danger" *ngIf="f['password'].touched  && f['password'].errors?.['minlength']">
+          Minimum 6 characters required.
+        </small>
+      </div>
+
+      <!-- Confirm Password -->
+      <div class="mb-3">
+        <label for="confirmPassword" class="form-label">Confirm Password</label>
+        <input type="password" id="confirmPassword" class="form-control" formControlName="confirmPassword" />
+        <small class="text-danger" *ngIf="(f['confirmPassword'].touched  || submitted) && f['confirmPassword'].errors?.['required']">
+          Confirm Password is required.
+        </small>
+        <small class="text-danger" *ngIf=" f['confirmPassword'].valid && registrationForm.errors?.['notmatched']">
+          Passwords must match.
+        </small>
+      </div>
+
+      <!-- Submit & Cancel Buttons -->
+      <div class="d-flex justify-content-center mt-3">
+        <button type="submit" class="btn btn-primary me-2" >Register</button>
+        <button type="reset" class="btn btn-secondary" (click)="registrationForm.reset()">Reset</button>
+      </div>
+    </form>
+  </div>
+</div>

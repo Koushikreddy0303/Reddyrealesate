@@ -1,0 +1,28 @@
+/* You can add global styles to this file, and also import other style files */
+@import '../node_modules/alertifyjs/build/css/alertify.min.css';
+@import '../node_modules/alertifyjs/build/css/themes/bootstrap.min.css';
+@import 'assets/tabs.css';
+.ng-invalid .ng-touched{
+  border-color: red;
+}
+.error-block{
+  color: red;
+}
+.ng-valid.ng-touched {
+  border-color: #ced4da !important; /* Default Bootstrap border color */
+}
+btn-group > label[ng-reflect-btn-radio] {
+  border-radius: 44px;
+  padding: 0 15px;
+  line-height: 30px;
+}
+
+.card-header > h1, .card-header > h2, .card-header > h3 {
+  color: white;
+}
+
+.card-header {
+  height: 42px;
+  padding: 4px 10px !important;
+  background-color: black !important;
+}
